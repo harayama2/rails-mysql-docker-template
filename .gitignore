@@ -1,0 +1,19 @@
+/log
+/tmp
+!/log/.keep
+!/tmp/.keep
+/public/system
+/public/packs
+/node_modules
+
+.env
+
+/.bundle
+/vendor/bundle
+
+/.idea
+
+.DS_Store
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key

@@ -12,7 +12,7 @@
 
 <p>
   <strong>完了フラグ:</strong>
-  <%= @task.is_done %>
+  <%= @task.is_done ? '完了済み' : '未完了' %>
 </p>
 
 <%= link_to '編集', edit_task_path(@task) %> |

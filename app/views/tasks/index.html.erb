@@ -7,7 +7,6 @@
     <tr>
       <th>タイトル</th>
       <th>説明</th>
-      <th>完了フラグ</th>
       <th>作成日</th>
       <th>更新日</th>
       <th colspan="5"></th>
@@ -19,12 +18,11 @@
       <tr>
         <td><%= task.title %></td>
         <td><%= task.description %></td>
-        <td><%= task.is_done %></td>
         <td><%= task.created_at %></td>
         <td><%= task.updated_at %></td>
         <td><%= link_to '詳細', task %></td>
         <td><%= link_to '編集', edit_task_path(task) %></td>
-        <td><%= link_to '削除', task, method: :delete, data: { confirm: 'この操作は取り消せません。本当に削除しますか?' } %></td>
+        <td><%= link_to '完了にする', done_task_path(task), method: :put %></td>
       </tr>
     <% end %>
   </tbody>
@@ -46,7 +44,6 @@
     <tr>
       <th>タイトル</th>
       <th>説明</th>
-      <th>完了フラグ</th>
       <th>作成日</th>
       <th>更新日</th>
       <th colspan="5"></th>
@@ -58,11 +55,11 @@
       <tr>
         <td><%= task.title %></td>
         <td><%= task.description %></td>
-        <td><%= task.is_done %></td>
         <td><%= task.created_at %></td>
         <td><%= task.updated_at %></td>
         <td><%= link_to '詳細', task %></td>
         <td><%= link_to '編集', edit_task_path(task) %></td>
+        <td><%= link_to '未完了に戻す', undo_task_path(task), method: :put %></td>
         <td><%= link_to '削除', task, method: :delete, data: { confirm: 'この操作は取り消せません。本当に削除しますか?' } %></td>
       </tr>
     <% end %>

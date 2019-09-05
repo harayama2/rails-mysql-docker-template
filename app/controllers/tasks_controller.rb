@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :done, :undo]
 
   # GET /tasks
   # GET /tasks.json
   def index
     @tasks = Task.where(is_done: false).order(created_at: :desc)
-    @done_tasks = Task.where(is_done: true)
+    @done_tasks = Task.where(is_done: true).order(:updated_at)
   end
 
   # GET /tasks/1
@@ -62,6 +62,26 @@ class TasksController < ApplicationController
     end
   end
 
+  ### 追加したアクション
+
+  # タスクを完了する
+  def done
+    if @task.done
+      redirect_to tasks_path, notice: 'タスクを完了しました。'
+    else
+      redirect_to tasks_path, notice: 'タスクを完了できませんでした。'
+    end
+  end
+
+  # タスクを未完了に戻す
+  def undo
+    if @task.undo
+      redirect_to tasks_path, notice: 'タスクを未完了に戻しました。'
+    else
+      redirect_to tasks_path, notice: 'タスクを未完了に戻せませんでした。'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
@@ -70,6 +90,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :description, :is_done)
+      params.require(:task).permit(:title, :description)
     end
 end

@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <%# ログインしているときにログインユーザーの情報を表示する %>
+    <% if user_signed_in? %>
+      <div>
+        <span><%= current_user.email %> でログイン中</span>
+        <span><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></span>
+      </div>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

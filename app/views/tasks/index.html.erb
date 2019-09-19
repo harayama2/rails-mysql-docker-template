@@ -7,6 +7,7 @@
       <th>説明</th>
       <th>作成日</th>
       <th>更新日</th>
+      <th>作成者</th>
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= task.description %></td>
         <td><%= task.created_at %></td>
         <td><%= task.updated_at %></td>
+        <td><%= task.user.email %></td>
         <td><%= link_to '詳細', task %></td>
         <td><%= link_to '編集', edit_task_path(task) %></td>
         <td><%= link_to '完了にする', done_task_path(task), method: :put %></td>

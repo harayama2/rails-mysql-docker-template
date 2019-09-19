@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_05_080344) do
+ActiveRecord::Schema.define(version: 2019_09_12_112910) do
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", comment: "タスクテーブル", force: :cascade do |t|
     t.string "title", comment: "タイトル"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2019_09_05_080344) do
     t.boolean "is_done", default: false, null: false, comment: "完了フラグ"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

@@ -13,5 +13,10 @@
   <%= @task.is_done ? '完了済み' : '未完了' %>
 </p>
 
+<p>
+  <strong>作成者:</strong>
+  <%= @task.user.email %>
+</p>
+
 <%= link_to '編集', edit_task_path(@task) %> |
 <%= link_to '一覧に戻る', tasks_path %>

@@ -1,0 +1,9 @@
+<%= form_with(model: [task, comment], local: true) do |form| %>
+  <div class="field">
+    <%= form.text_field :content, placeholder: 'コメントを入力...', required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit '送信' %>
+  </div>
+<% end %>

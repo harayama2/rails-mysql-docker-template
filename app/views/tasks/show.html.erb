@@ -20,3 +20,9 @@
 
 <%= link_to '編集', edit_task_path(@task) %> |
 <%= link_to '一覧に戻る', tasks_path %>
+
+<hr/>
+
+<h3>コメント</h3>
+<%= render partial: 'comments/comment', collection: @task.comments %>
+<%= render partial: 'comments/form', locals: { task: @task, comment: Comment.new } %>

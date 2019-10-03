@@ -1,0 +1,7 @@
+<p><%= comment.content %></p>
+<p>
+  <small><%= comment.user.email %></small>
+  <small><%= comment.created_at %></small>
+  <span><%= link_to '編集', [:edit, comment.task, comment] %></span> |
+  <span><%= link_to '削除', [comment.task, comment], method: :delete, data: { confirm: 'このコメントを削除しますか？' } %></span>
+</p>

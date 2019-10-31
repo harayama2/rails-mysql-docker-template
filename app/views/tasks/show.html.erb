@@ -14,6 +14,16 @@
 </p>
 
 <p>
+  <strong>期日:</strong>
+  <%= @task.due_date %>
+</p>
+
+<p>
+  <strong>担当者:</strong>
+  <%= @task.assignee.email if @task.assignee %>
+</p>
+
+<p>
   <strong>作成者:</strong>
   <%= @task.user.email %>
 </p>

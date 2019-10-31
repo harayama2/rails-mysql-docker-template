@@ -33,6 +33,7 @@ end
 #                 done_task PUT    /tasks/:id/done(.:format)                                                                tasks#done
 #                 undo_task PUT    /tasks/:id/undo(.:format)                                                                tasks#undo
 #             task_comments POST   /tasks/:task_id/comments(.:format)                                                       comments#create
+#         edit_task_comment GET    /tasks/:task_id/comments/:id/edit(.:format)                                              comments#edit
 #              task_comment PATCH  /tasks/:task_id/comments/:id(.:format)                                                   comments#update
 #                           PUT    /tasks/:task_id/comments/:id(.:format)                                                   comments#update
 #                           DELETE /tasks/:task_id/comments/:id(.:format)                                                   comments#destroy

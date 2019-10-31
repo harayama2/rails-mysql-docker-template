@@ -21,6 +21,16 @@
     <%= form.text_area :description %>
   </div>
 
+  <div class="field">
+    <%= form.label :due_date, '期日' %>
+    <%= form.date_field :due_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :assignee_id, '担当者' %>
+    <%= form.collection_select(:assignee_id, User.all, :id, :email, { include_blank: true }) %>
+  </div>
+
   <div class="actions">
     <%= form.submit '保存' %>
   </div>
